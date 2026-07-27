@@ -1,0 +1,49 @@
+/* 真顔の向井さん Official Website
+   機能ごとに分け、将来のコンテンツ追加をしやすくしています。 */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu-button");
+  const navigation = document.querySelector(".global-nav");
+
+  // モバイル用ハンバーガーメニュー
+  if (menuButton && navigation) {
+    const closeMenu = () => {
+      menuButton.classList.remove("is-open");
+      navigation.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "メニューを開く");
+    };
+    menuButton.addEventListener("click", () => {
+      const willOpen = !menuButton.classList.contains("is-open");
+      menuButton.classList.toggle("is-open", willOpen);
+      navigation.classList.toggle("is-open", willOpen);
+      menuButton.setAttribute("aria-expanded", String(willOpen));
+      menuButton.setAttribute("aria-label", willOpen ? "メニューを閉じる" : "メニューを開く");
+    });
+    navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      // 表示中のモバイルメニューだけを閉じる（PC表示のリンクには影響させません）。
+      if (window.matchMedia("(max-width: 720px)").matches) closeMenu();
+    }));
+  }
+
+  // スクロール時に要素を滑らかに表示
+  const revealItems = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => observer.observe(item));
+
+  // WORKS 年表のアコーディオン
+  document.querySelectorAll(".timeline__trigger").forEach((trigger) => {
+    const initialPanel = trigger.closest(".timeline__item").querySelector(".timeline__panel");
+    // hidden属性を外し、CSSトランジションで閉じた状態を表現します。
+    initialPanel.hidden = false;
+    trigger.addEventListener("click", () => {
+      const item = trigger.closest(".timeline__item");
+      const panel = item.querySelector(".timeline__panel");
+      const isOpen = item.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+  });
+
+  // お問い合わせフォームは FormSubmit を通じて指定メールアドレスへ送信します。
+});
