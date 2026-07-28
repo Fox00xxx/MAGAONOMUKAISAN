@@ -45,5 +45,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // お問い合わせフォームは FormSubmit を通じて指定メールアドレスへ送信します。
+  // お問い合わせフォームは FormSubmit を通じて非同期送信し、ページ遷移せず完了メッセージを表示します。
+  const form = document.querySelector(".contact-form");
+  if (form) {
+    const status = form.querySelector(".form-status");
+    const submitButton = form.querySelector(".submit-button");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      status.textContent = "送信中です…";
+      status.className = "form-status is-sending";
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (!response.ok) throw new Error("送信に失敗しました。");
+        form.reset();
+        status.textContent = "送信されました。お問い合わせありがとうございます。";
+        status.className = "form-status is-success";
+      } catch (error) {
+        status.textContent = "送信できませんでした。時間をおいて、もう一度お試しください。";
+        status.className = "form-status is-error";
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  }
 });
