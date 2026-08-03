@@ -1,0 +1,17 @@
+Urban Shadow - Original Arrangement
+BPM: 213 | Meter: 4/4 | Key centre: D# minor
+
+Files
+- urban_shadow_full_arrangement_213bpm.mid: all four musical tracks in one Type-1 MIDI
+- urban_shadow_lead_guitar_213bpm.mid: expressive lead guitar only
+- urban_shadow_rhythm_guitar_213bpm.mid: distorted rhythm guitar only
+- urban_shadow_main_keys_213bpm.mid: main keyboard (dark piano guide) only
+- urban_shadow_sub_keys_213bpm.mid: sub keyboard (dark pad guide) only
+
+Arrangement
+Bars 1-8 Intro | Bars 9-16 Verse | Bars 17-24 Build | Bars 25-32 Chorus
+
+BandLab setup
+Import the full file to keep the separate tracks, or import the four stem files one by one.
+For lead guitar, choose an amp/electric-guitar sound and retain pitch bend and expression data.
+The included guitar line has uneven timing, velocity changes, bends, pauses, and short picked notes to feel less synthetic.
