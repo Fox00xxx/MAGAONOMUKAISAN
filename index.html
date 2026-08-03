@@ -22,7 +22,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="global-nav" id="global-nav" aria-label="メインメニュー">
-        <a href="#news">NEWS</a><a href="#disco">DISCO</a><a href="#bio">BIO</a><a href="#movie">MOVIE</a><a href="#works">WORKS</a><a href="#contact">CONTACT</a>
+        <a href="#news">NEWS</a><a href="#disco">DISCO</a><a href="#bio">BIO</a><a href="#movie">MOVIE</a><a href="#works">WORKS</a><a href="collaborators.html">COLLABS</a><a href="#contact">CONTACT</a>
       </nav>
     </header>
 
@@ -75,10 +75,21 @@
 
       <section class="section movie section--surface" id="movie" aria-labelledby="movie-title">
         <div class="section-heading reveal"><p class="eyebrow">WATCH &amp; LISTEN</p><h2 id="movie-title">MOVIE</h2></div>
-        <a class="movie-card reveal" href="https://youtu.be/SB6RyebskJU?si=KvrccO0UgUGBesxb" target="_blank" rel="noopener noreferrer" aria-label="YouTubeで動画を再生（新しいタブで開く）">
-          <img src="https://i.ytimg.com/vi/SB6RyebskJU/hqdefault.jpg" alt="真顔の向井さんのYouTube動画サムネイル" width="480" height="360" loading="lazy" />
-          <span class="movie-card__play" aria-hidden="true">▶</span><span class="movie-card__label">WATCH ON YOUTUBE <i>↗</i></span>
-        </a>
+        <!-- 音楽サイトの作品一覧のように、サムネイル・種別・視聴先を整然と表示します。 -->
+        <div class="movie-archive">
+          <a class="movie-card reveal" href="https://youtu.be/SB6RyebskJU?si=KvrccO0UgUGBesxb" target="_blank" rel="noopener noreferrer" aria-label="UTAUcover 私が明日死ぬならをYouTubeで再生（新しいタブで開く）">
+            <img src="https://i.ytimg.com/vi/SB6RyebskJU/hqdefault.jpg" alt="UTAUcover 私が明日死ぬならの動画サムネイル" width="480" height="360" loading="lazy" />
+            <span class="movie-card__play" aria-hidden="true">▶</span><span class="movie-card__number">01 / UTAU COVER</span><span class="movie-card__label">私が明日死ぬなら <i>↗</i></span>
+          </a>
+          <a class="movie-card reveal" href="https://youtu.be/8ImHr9uvGXM" target="_blank" rel="noopener noreferrer" aria-label="YouTubeで動画を再生（新しいタブで開く）">
+            <img src="https://i.ytimg.com/vi/8ImHr9uvGXM/hqdefault.jpg" alt="YouTube動画のサムネイル" width="480" height="360" loading="lazy" />
+            <span class="movie-card__play" aria-hidden="true">▶</span><span class="movie-card__number">02 / MOVIE</span><span class="movie-card__label">WATCH ON YOUTUBE <i>↗</i></span>
+          </a>
+          <a class="movie-card reveal" href="https://youtu.be/6AFlgF3NKUw" target="_blank" rel="noopener noreferrer" aria-label="YouTubeで動画を再生（新しいタブで開く）">
+            <img src="https://i.ytimg.com/vi/6AFlgF3NKUw/hqdefault.jpg" alt="YouTube動画のサムネイル" width="480" height="360" loading="lazy" />
+            <span class="movie-card__play" aria-hidden="true">▶</span><span class="movie-card__number">03 / MOVIE</span><span class="movie-card__label">WATCH ON YOUTUBE <i>↗</i></span>
+          </a>
+        </div>
       </section>
 
       <section class="section works" id="works" aria-labelledby="works-title">
@@ -111,6 +122,11 @@
             <div class="timeline__panel" hidden><p>真顔の向井さん Official Website を開設。アーティスト活動を開始。</p></div>
           </article>
         </div>
+      </section>
+
+      <section class="section collaborators" id="collaborators" aria-labelledby="collaborators-title">
+        <div class="section-heading reveal"><p class="eyebrow">CREATIVE CONNECTIONS</p><h2 id="collaborators-title">COLLABS</h2></div>
+        <div class="collaborators__intro reveal"><p>過去ともに映像を届けてきた方々らを載せています。<br />(Thanks!)</p><a class="text-link" href="collaborators.html">PAST COLLABORATORS <span>→</span></a></div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
@@ -157,7 +173,7 @@
       </section>
     </main>
 
-    <footer class="site-footer"><a class="brand" href="#top">MUKAI<span>.</span></a><div class="social-links" aria-label="SNSリンク"><a href="#" aria-label="X（URL準備中）">X</a><a href="#" aria-label="Instagram（URL準備中）">IG</a><a href="#" aria-label="YouTube（URL準備中）">YT</a></div><small>© 2026 MAGAO NO MUKAI-SAN.</small></footer>
+    <footer class="site-footer"><a class="brand" href="#top">MUKAI<span>.</span></a><div class="social-links" aria-label="リンク"><a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="Xを開く（新しいタブ）">X</a><a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTubeを開く（新しいタブ）">YT</a><a href="#top" aria-label="ページ上部へ戻る">−</a></div><small>© 2026 MAGAO NO MUKAI-SAN.</small></footer>
     <script src="js/main.js" defer></script>
   </body>
 </html>
