@@ -30,6 +30,10 @@
       <!-- Hero: 画像は assets に追加して CSS の --hero-image を差し替えられます。 -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero__grid" aria-hidden="true"></div>
+        <!-- トップ映像：無音・ループ再生。未対応ブラウザでは背景グラフィックを表示します。 -->
+        <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+          <source src="背景.mp4" type="video/mp4" />
+        </video>
         <div class="hero__graphic" aria-hidden="true"></div>
         <div class="hero__content">
           <p class="eyebrow reveal">DRUMMER / BASSIST / CREATOR</p>
