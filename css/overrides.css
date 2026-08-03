@@ -48,11 +48,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: min(var(--max), calc(100% - 48px));
   min-height: 100svh;
-  padding: 84px 0 100px;
+  padding: 84px 24px 100px;
   text-align: center;
 }
-.hero__title { font-size: clamp(2.7rem, 7vw, 6.3rem); }
+.hero__content .eyebrow { margin: 0 0 16px; text-shadow: 0 2px 14px rgba(0, 0, 0, .8); }
+.hero__title {
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 6.3rem);
+  line-height: 1.18;
+  text-wrap: balance;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, .8);
+}
+.hero__official { margin: 18px 0 0; text-shadow: 0 2px 14px rgba(0, 0, 0, .8); }
 .hero__number { z-index: 3; }
 
 /* BIO: 元画像の比率・色味を維持 */
@@ -151,6 +161,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (max-width: 720px) {
   .hero__graphic { top: 20%; right: -32vw; width: 95vw; }
+  .hero__content { padding: 70px 24px 86px; }
+  .hero__content .eyebrow { margin-bottom: 14px; font-size: .6rem; }
+  .hero__official { margin-top: 14px; font-size: .78rem; }
   .movie-card__play { width: 58px; height: 58px; }
   .information { padding-bottom: 70px; }
   .information__content { padding-left: 0; }
@@ -161,6 +174,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 @media (max-width: 520px) {
+  .hero__title { white-space: nowrap; }
   .movie-archive { grid-template-columns: 1fr; }
   .movie-card__label { font-size: .65rem; }
 }
