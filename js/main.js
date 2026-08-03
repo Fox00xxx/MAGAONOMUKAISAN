@@ -1,6 +1,20 @@
 /* 真顔の向井さん Official Website
    機能ごとに分け、将来のコンテンツ追加をしやすくしています。 */
 document.addEventListener("DOMContentLoaded", () => {
+  // トップ映像：自動再生を許可しない環境でも、背景グラフィックを残して表示を維持します。
+  const heroVideo = document.querySelector(".hero__video");
+  if (heroVideo) {
+    try {
+      const playback = heroVideo.play();
+      if (playback && typeof playback.catch === "function") {
+        playback.catch(() => heroVideo.classList.add("is-paused"));
+      }
+    } catch (error) {
+      heroVideo.classList.add("is-paused");
+    }
+    heroVideo.addEventListener("error", () => heroVideo.classList.add("is-unavailable"));
+  }
+
   const menuButton = document.querySelector(".menu-button");
   const navigation = document.querySelector(".global-nav");
 
@@ -27,10 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // スクロール時に要素を滑らかに表示
   const revealItems = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } });
-  }, { threshold: 0.12 });
-  revealItems.forEach((item) => observer.observe(item));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    // 古いブラウザでは、非表示のままにならないよう全要素を表示します。
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  }
 
   // WORKS 年表のアコーディオン
   document.querySelectorAll(".timeline__trigger").forEach((trigger) => {
@@ -39,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initialPanel.hidden = false;
     trigger.addEventListener("click", () => {
       const item = trigger.closest(".timeline__item");
-      const panel = item.querySelector(".timeline__panel");
       const isOpen = item.classList.toggle("is-open");
       trigger.setAttribute("aria-expanded", String(isOpen));
     });
