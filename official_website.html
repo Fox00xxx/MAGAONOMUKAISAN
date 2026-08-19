@@ -11,7 +11,6 @@
     <meta property="og:type" content="website">
     <title>真顔の向井さん Official Website</title>
 
-    <!-- Tailwind CSS for modern responsive utilities -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,12 +36,9 @@
         }
     </script>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -72,7 +68,6 @@
             transform: translateY(-2px);
         }
 
-        /* Minimal hover text transition */
         .hover-accent {
             transition: color 0.2s ease;
         }
@@ -87,25 +82,22 @@
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* 安全装置：JavaScriptが無効な環境では最初から表示する */
+        noscript .reveal-on-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .reveal-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Custom minimal scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2a2a32;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0066ff;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #2a2a32; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0066ff; }
 
         /* WORKS Timeline animations */
         .timeline-line {
@@ -120,7 +112,6 @@
         .works-item {
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
-
         .works-item:hover {
             transform: translateX(6px);
             border-color: #f97316;
@@ -143,11 +134,9 @@
 </head>
 <body class="selection:bg-brand-blue selection:text-white">
 
-    <!-- Navigation Header -->
     <header class="fixed top-0 left-0 w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo / Name with Icon -->
             <a href="#top" class="flex items-center gap-3 group focus:outline-none">
                 <img src="MUKAI.jpg" alt="真顔の向井さん Icon" class="w-9 h-9 rounded-full border border-brand-border object-cover group-hover:border-brand-blue transition-colors" onerror="this.style.display='none'">
                 <span class="font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-brand-blue transition-colors">
@@ -155,7 +144,6 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center space-x-6 text-xs tracking-widest font-bold uppercase text-slate-400">
                 <a href="#news" class="hover-accent">NEWS</a>
                 <a href="#disco" class="hover-accent">DISCO</a>
@@ -167,13 +155,11 @@
                 <a href="#contact" class="hover-accent text-white border border-brand-border px-4 py-1.5 rounded hover:border-brand-blue transition-all">CONTACT</a>
             </nav>
 
-            <!-- Mobile Menu Toggle Button -->
             <button id="mobile-menu-btn" aria-label="メニューを開く" class="lg:hidden text-white text-2xl p-2 rounded focus:outline-none">
                 <i class="fa-solid fa-bars" id="menu-icon"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-brand-dark border-b border-brand-border px-6 py-6 space-y-4">
             <nav class="flex flex-col space-y-4 font-bold tracking-widest uppercase text-xs">
                 <a href="#news" class="mobile-nav-link text-slate-300 hover:text-brand-blue py-1 border-b border-brand-border/40">NEWS</a>
@@ -192,21 +178,18 @@
         </div>
     </header>
 
-    <!-- TOP / HERO SECTION -->
     <section id="top" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-black">
         
-        <!-- Video Background (MP4) -->
+        <!-- Video Background with Multiple Sources to prevent loading errors -->
         <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
             <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-50 filter contrast-125">
                 <source src="bg.mp4" type="video/mp4">
-                <source src="background.mp4" type="video/mp4">
+                <source src="背景.mp4" type="video/mp4">
             </video>
-            <!-- Minimal dark overlay for typography contrast -->
             <div class="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <!-- Artist Main Title -->
             <h1 class="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white uppercase mb-4">
                 真顔の向井さん
             </h1>
@@ -222,7 +205,6 @@
         </div>
     </section>
 
-    <!-- NEWS SECTION -->
     <section id="news" class="py-24 border-t border-brand-border bg-brand-black">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -230,11 +212,10 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">NEWS</h2>
             </div>
 
-            <!-- News Item List -->
             <div class="space-y-4 reveal-on-scroll">
                 <article class="solid-card p-6 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div class="flex items-center gap-4 shrink-0">
-                        <span class="text-xs font-mono text-slate-400">2026.08.19</span>
+                        <span class="text-xs font-mono text-slate-400" id="current-date">2026.08.19</span>
                         <span class="px-2.5 py-0.5 rounded bg-brand-blue/20 text-brand-blue text-[10px] font-mono uppercase font-bold">INFO</span>
                     </div>
                     <div class="flex-1">
@@ -245,7 +226,6 @@
         </div>
     </section>
 
-    <!-- DISCO SECTION -->
     <section id="disco" class="py-24 border-t border-brand-border bg-brand-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -253,7 +233,6 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">DISCOGRAPHY</h2>
             </div>
 
-            <!-- Coming Soon Display -->
             <div class="solid-panel p-12 text-center rounded-lg reveal-on-scroll">
                 <p class="text-lg sm:text-xl font-mono text-slate-400 tracking-widest">COMING SOON</p>
                 <p class="text-xs text-slate-500 mt-2 font-mono">※ リリース情報は後日公開予定です。</p>
@@ -261,7 +240,6 @@
         </div>
     </section>
 
-    <!-- BIO SECTION -->
     <section id="bio" class="py-24 border-t border-brand-border bg-brand-black">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -270,14 +248,13 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-                <!-- Artist Profile Image (Specified Slot with MUKAI.jpg) -->
                 <div class="md:col-span-5 reveal-on-scroll">
                     <div class="relative overflow-hidden rounded-lg border border-brand-border group">
+                        <!-- Image Fallback included to prevent broken layout on GitHub Pages -->
                         <img src="MUKAI.jpg" alt="真顔の向井さん プロフィール画像" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://placehold.co/600x600/18181c/ffffff?text=MUKAI'">
                     </div>
                 </div>
 
-                <!-- Bio Text -->
                 <div class="md:col-span-7 space-y-6 reveal-on-scroll">
                     <h3 class="text-2xl font-bold text-white">真顔の向井さん</h3>
                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
@@ -290,7 +267,6 @@
         </div>
     </section>
 
-    <!-- MOVIE SECTION -->
     <section id="movie" class="py-24 border-t border-brand-border bg-brand-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -344,7 +320,6 @@
         </div>
     </section>
 
-    <!-- WORKS SECTION -->
     <section id="works" class="py-24 border-t border-brand-border bg-brand-black relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -352,10 +327,7 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">WORKS</h2>
             </div>
 
-            <!-- Interactive Timeline Accordion with Left Line -->
             <div class="relative max-w-3xl mx-auto pl-8 sm:pl-10 space-y-4 reveal-on-scroll">
-                
-                <!-- Vertical Timeline Track -->
                 <div class="timeline-line"></div>
 
                 <!-- 2008 -->
@@ -482,7 +454,6 @@
         </div>
     </section>
 
-    <!-- COLLABS SECTION -->
     <section id="collabs" class="py-24 border-t border-brand-border bg-brand-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -490,23 +461,13 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">COLLABS</h2>
             </div>
 
-            <!-- Creator Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 reveal-on-scroll">
-                <div class="solid-card p-6 text-center rounded">
-                    <p class="text-sm sm:text-base font-bold text-white">れーしあ</p>
-                </div>
-                <div class="solid-card p-6 text-center rounded">
-                    <p class="text-sm sm:text-base font-bold text-white">おうどん</p>
-                </div>
-                <div class="solid-card p-6 text-center rounded">
-                    <div class="text-sm sm:text-base font-bold text-white">せんぺんYMM4</div>
-                </div>
-                <div class="solid-card p-6 text-center rounded">
-                    <p class="text-sm sm:text-base font-bold text-white">biroudo</p>
-                </div>
+                <div class="solid-card p-6 text-center rounded"><p class="text-sm sm:text-base font-bold text-white">れーしあ</p></div>
+                <div class="solid-card p-6 text-center rounded"><p class="text-sm sm:text-base font-bold text-white">おうどん</p></div>
+                <div class="solid-card p-6 text-center rounded"><div class="text-sm sm:text-base font-bold text-white">せんぺんYMM4</div></div>
+                <div class="solid-card p-6 text-center rounded"><p class="text-sm sm:text-base font-bold text-white">biroudo</p></div>
             </div>
 
-            <!-- VIEW MORE Expandable Section -->
             <div class="mt-8 text-center reveal-on-scroll">
                 <button id="collabs-viewmore-btn" class="px-8 py-3 rounded border border-brand-border hover:border-brand-blue hover:text-brand-blue text-xs font-mono tracking-widest uppercase text-slate-300 transition-all inline-flex items-center gap-2 group focus:outline-none">
                     <span>VIEW MORE</span>
@@ -514,7 +475,6 @@
                 </button>
             </div>
 
-            <!-- Collapsible Detailed Creator Cards -->
             <div id="collabs-details" class="accordion-content mt-6 space-y-4">
                 <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
@@ -523,7 +483,6 @@
                     </div>
                     <p class="text-xs text-slate-400 mt-2 leading-relaxed">共作・映像制作および音楽プロジェクトでのコラボレーション。</p>
                 </div>
-
                 <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                         <h3 class="text-base font-bold text-white">おうどん</h3>
@@ -531,7 +490,6 @@
                     </div>
                     <p class="text-xs text-slate-400 mt-2 leading-relaxed">企画動画・共同コンテンツにおけるクリエイティブ協力。</p>
                 </div>
-
                 <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                         <h3 class="text-base font-bold text-white">せんぺんYMM4</h3>
@@ -539,7 +497,6 @@
                     </div>
                     <p class="text-xs text-slate-400 mt-2 leading-relaxed">YMM4編集・映像表現に関する共同制作・技術パートナー。</p>
                 </div>
-
                 <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                         <h3 class="text-base font-bold text-white">biroudo</h3>
@@ -551,7 +508,6 @@
         </div>
     </section>
 
-    <!-- Q&A SECTION -->
     <section id="qa" class="py-24 border-t border-brand-border bg-brand-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
@@ -560,7 +516,6 @@
             </div>
 
             <div class="space-y-4 reveal-on-scroll">
-                <!-- Q1 -->
                 <div class="solid-card rounded overflow-hidden">
                     <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
                         <span><span class="text-brand-blue font-mono mr-2">Q.</span> お問い合わせが届かない</span>
@@ -571,7 +526,6 @@
                     </div>
                 </div>
 
-                <!-- Q2 -->
                 <div class="solid-card rounded overflow-hidden">
                     <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
                         <span><span class="text-brand-blue font-mono mr-2">Q.</span> イベント・ライブの出演について</span>
@@ -582,7 +536,6 @@
                     </div>
                 </div>
 
-                <!-- Q3 -->
                 <div class="solid-card rounded overflow-hidden">
                     <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
                         <span><span class="text-brand-blue font-mono mr-2">Q.</span> 楽曲制作などは</span>
@@ -593,7 +546,6 @@
                     </div>
                 </div>
 
-                <!-- Q4 -->
                 <div class="solid-card rounded overflow-hidden">
                     <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
                         <span><span class="text-brand-blue font-mono mr-2">Q.</span> 名前は実名ですか？</span>
@@ -607,7 +559,6 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="py-24 border-t border-brand-border bg-brand-dark">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center reveal-on-scroll">
@@ -616,9 +567,7 @@
                 <p class="text-xs text-slate-400 mt-2">ご質問・各種ご依頼はこちらからお送りください。</p>
             </div>
 
-            <!-- Contact Form with FormSubmit destination set to 44324432au@gmail.com -->
             <form id="contact-form" action="https://formsubmit.co/ajax/44324432au@gmail.com" method="POST" class="space-y-5 reveal-on-scroll">
-                <!-- FormSubmit Configuration Hidden Fields -->
                 <input type="hidden" name="_subject" value="【真顔の向井さん Official Website】お問い合わせ受付">
                 <input type="hidden" name="_captcha" value="false">
 
@@ -644,11 +593,8 @@
         </div>
     </section>
 
-    <!-- FOOTER (ONLY YOUTUBE AND X) -->
     <footer class="py-12 border-t border-brand-border bg-brand-black text-center text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            
-            <!-- Specified SNS Links Only: YouTube & X -->
             <div class="flex items-center justify-center gap-8 text-2xl text-slate-300">
                 <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-red-500 transition-colors">
                     <i class="fa-brands fa-youtube"></i>
@@ -657,12 +603,10 @@
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
             </div>
-
             <p class="font-mono text-[10px] tracking-widest uppercase">&copy; 真顔の向井さん All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Contact Modal -->
     <div id="contact-modal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 hidden">
         <div class="bg-brand-panel border border-brand-border rounded p-8 max-w-sm w-full text-center space-y-4">
             <h3 class="text-lg font-bold text-white">送信が完了しました</h3>
@@ -676,127 +620,145 @@
     </div>
 
     <script>
-        // 1. Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.className = 'fa-solid fa-bars';
-            } else {
-                menuIcon.className = 'fa-solid fa-xmark';
-            }
-        });
-
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = 'fa-solid fa-bars';
-            });
-        });
-
-        // 2. Scroll Reveal Observer
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(el => observer.observe(el));
-
-        // 3. WORKS Timeline Smooth Accordion Toggle
-        document.querySelectorAll('.works-accordion-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const content = btn.nextElementSibling;
-                const icon = btn.querySelector('i');
-                const isOpen = content.classList.contains('is-open');
-
-                // Toggle open state with smooth transition
-                if (isOpen) {
-                    content.classList.remove('is-open');
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    content.classList.add('is-open');
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-
-        // 4. COLLABS VIEW MORE Toggle
-        const collabsBtn = document.getElementById('collabs-viewmore-btn');
-        const collabsDetails = document.getElementById('collabs-details');
-        const collabsIcon = document.getElementById('collabs-icon');
-
-        if (collabsBtn && collabsDetails) {
-            collabsBtn.addEventListener('click', () => {
-                const isOpen = collabsDetails.classList.contains('is-open');
-                if (isOpen) {
-                    collabsDetails.classList.remove('is-open');
-                    collabsBtn.querySelector('span').textContent = 'VIEW MORE';
-                    collabsIcon.style.transform = 'rotate(0deg)';
-                } else {
-                    collabsDetails.classList.add('is-open');
-                    collabsBtn.querySelector('span').textContent = 'CLOSE DETAILS';
-                    collabsIcon.style.transform = 'rotate(180deg)';
-                }
-            });
-        }
-
-        // 5. Q&A Accordion Toggle
-        document.querySelectorAll('.qa-toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const content = btn.nextElementSibling;
-                const icon = btn.querySelector('i');
-                content.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-            });
-        });
-
-        // 6. Contact Form Ajax Handler targeting 44324432au@gmail.com
-        const contactForm = document.getElementById('contact-form');
-        const contactModal = document.getElementById('contact-modal');
-        const submitBtn = document.getElementById('submit-btn');
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'SENDING...';
-            submitBtn.disabled = true;
-
-            try {
-                const formData = new FormData(contactForm);
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
+        // JSエラーによる画面真っ白バグを防ぐためのセーフティネット
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                    if (!el.classList.contains('is-visible')) {
+                        el.classList.add('is-visible');
                     }
                 });
+            }, 1000); // 1秒後に強制表示
+        });
 
-                if (response.ok) {
-                    contactModal.classList.remove('hidden');
-                    contactForm.reset();
-                } else {
-                    alert('送信に失敗しました。時間をおいて再度お試しいただくか、直接メールでお問い合わせください。');
-                }
-            } catch (error) {
-                console.error('Submit error:', error);
-                contactModal.classList.remove('hidden'); // Fallback show modal
-                contactForm.reset();
-            } finally {
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            if (mobileMenuBtn && mobileMenu && menuIcon) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.className = mobileMenu.classList.contains('hidden') ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
+                });
+
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.className = 'fa-solid fa-bars';
+                    });
+                });
+            }
+
+            // 2. Scroll Reveal Observer
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            if (window.IntersectionObserver) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                revealElements.forEach(el => observer.observe(el));
+            } else {
+                // Observer非対応ブラウザ用フォールバック
+                revealElements.forEach(el => el.classList.add('is-visible'));
+            }
+
+            // 3. WORKS Timeline Accordion Toggle
+            document.querySelectorAll('.works-accordion-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    if(content && icon) {
+                        const isOpen = content.classList.contains('is-open');
+                        if (isOpen) {
+                            content.classList.remove('is-open');
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            content.classList.add('is-open');
+                            icon.style.transform = 'rotate(180deg)';
+                        }
+                    }
+                });
+            });
+
+            // 4. COLLABS VIEW MORE Toggle
+            const collabsBtn = document.getElementById('collabs-viewmore-btn');
+            const collabsDetails = document.getElementById('collabs-details');
+            const collabsIcon = document.getElementById('collabs-icon');
+
+            if (collabsBtn && collabsDetails && collabsIcon) {
+                collabsBtn.addEventListener('click', () => {
+                    const isOpen = collabsDetails.classList.contains('is-open');
+                    if (isOpen) {
+                        collabsDetails.classList.remove('is-open');
+                        collabsBtn.querySelector('span').textContent = 'VIEW MORE';
+                        collabsIcon.style.transform = 'rotate(0deg)';
+                    } else {
+                        collabsDetails.classList.add('is-open');
+                        collabsBtn.querySelector('span').textContent = 'CLOSE DETAILS';
+                        collabsIcon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+
+            // 5. Q&A Accordion Toggle
+            document.querySelectorAll('.qa-toggle-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    if(content && icon) {
+                        content.classList.toggle('hidden');
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+            });
+
+            // 6. Contact Form Ajax Handler
+            const contactForm = document.getElementById('contact-form');
+            const contactModal = document.getElementById('contact-modal');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (contactForm && contactModal && submitBtn) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const originalBtnText = submitBtn.textContent;
+                    submitBtn.textContent = 'SENDING...';
+                    submitBtn.disabled = true;
+
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (response.ok) {
+                            contactModal.classList.remove('hidden');
+                            contactForm.reset();
+                        } else {
+                            alert('送信に失敗しました。');
+                        }
+                    } catch (error) {
+                        console.error('Submit error:', error);
+                        contactModal.classList.remove('hidden'); // Fallback show
+                        contactForm.reset();
+                    } finally {
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                });
             }
         });
 
         function closeContactModal() {
-            contactModal.classList.add('hidden');
+            const modal = document.getElementById('contact-modal');
+            if (modal) modal.classList.add('hidden');
         }
     </script>
 </body>
