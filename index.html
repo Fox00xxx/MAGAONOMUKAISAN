@@ -41,6 +41,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        // JSが正常に機能している場合のみ透明化を有効にする（真っ白バグ防止）
+        document.documentElement.classList.add('js-ready');
+    </script>
+
     <style>
         /* Modern minimal typography & black-based solid aesthetic */
         body {
@@ -49,6 +54,21 @@
             font-family: 'Noto Sans JP', 'Inter', sans-serif;
             overflow-x: hidden;
             letter-spacing: 0.05em;
+        }
+
+        /* JS有効時のみ初期状態を透明にする（安全装置） */
+        .js-ready .reveal-on-scroll:not(.is-visible) {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal-on-scroll {
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Solid panel without flashy glowing gradients */
@@ -153,6 +173,10 @@
                 <a href="#collabs" class="hover-accent">COLLABS</a>
                 <a href="#qa" class="hover-accent">Q&amp;A</a>
                 <a href="#contact" class="hover-accent text-white border border-brand-border px-4 py-1.5 rounded hover:border-brand-blue transition-all">CONTACT</a>
+                <div class="flex items-center gap-4 text-base pl-3 border-l border-brand-border/60">
+                    <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
             </nav>
 
             <button id="mobile-menu-btn" aria-label="メニューを開く" class="lg:hidden text-white text-2xl p-2 rounded focus:outline-none">
@@ -197,9 +221,12 @@
                 BASSIST / DRUMMER / ARTIST
             </p>
 
-            <div class="mt-12 flex justify-center">
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#news" class="px-8 py-3 rounded border border-white/20 hover:border-brand-blue hover:text-brand-blue text-xs font-mono tracking-widest uppercase transition-all">
                     SCROLL DOWN
+                </a>
+                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded bg-white/5 border border-white/10 hover:border-white hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-x-twitter"></i> Official X
                 </a>
             </div>
         </div>
@@ -262,297 +289,310 @@
                         YouTubeやX(旧Twitter)で活動。<br>
                         様々なジャンルに挑戦し現在はアーティストとして活動中。
                     </p>
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded bg-brand-panel border border-brand-border hover:border-white text-xs font-mono text-white transition-all inline-flex items-center gap-2">
+                            <i class="fa-brands fa-x-twitter text-sm"></i> @KZNM_M4
+                        </a>
+                        <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded bg-brand-panel border border-brand-border hover:border-red-500 text-xs font-mono text-white transition-all inline-flex items-center gap-2">
+                            <i class="fa-brands fa-youtube text-sm text-red-500"></i> YouTube
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- MOVIE Section -->
     <section id="movie" class="py-24 border-t border-brand-border bg-brand-dark">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
-                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">04 / VIDEO WORKS</span>
+                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">04 / MOVIE</span>
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">MOVIE</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Movie Item 1 -->
-                <a href="https://youtu.be/SB6RyebskJU" target="_blank" rel="noopener noreferrer" class="solid-card rounded-lg overflow-hidden group reveal-on-scroll">
-                    <div class="aspect-video relative bg-slate-900 overflow-hidden">
-                        <img src="https://img.youtube.com/vi/SB6RyebskJU/hqdefault.jpg" alt="UTAUcover / 私が明日死ぬなら" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-play text-2xl text-white group-hover:text-brand-blue transition-colors"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-on-scroll">
+                <!-- Video 1 -->
+                <a href="https://youtu.be/SB6RyebskJU" target="_blank" rel="noopener noreferrer" class="group block">
+                    <div class="relative overflow-hidden rounded-lg aspect-video mb-4 border border-brand-border group-hover:border-brand-blue transition-colors">
+                        <img src="https://img.youtube.com/vi/SB6RyebskJU/maxresdefault.jpg" alt="UTAUcover / 私が明日死ぬなら" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                            <i class="fa-brands fa-youtube text-4xl text-white/80 group-hover:text-red-500 transition-colors"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-mono text-brand-blue uppercase">YouTube Cover</span>
-                        <h3 class="text-sm font-bold text-white mt-1 line-clamp-2">UTAUcover / 私が明日死ぬなら</h3>
-                    </div>
+                    <h3 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">UTAUcover / 私が明日死ぬなら</h3>
                 </a>
 
-                <!-- Movie Item 2 -->
-                <a href="https://youtu.be/6AFlgF3NKUw" target="_blank" rel="noopener noreferrer" class="solid-card rounded-lg overflow-hidden group reveal-on-scroll">
-                    <div class="aspect-video relative bg-slate-900 overflow-hidden">
-                        <img src="https://img.youtube.com/vi/6AFlgF3NKUw/hqdefault.jpg" alt="PVSF2026Sp / 超深淵帯" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-play text-2xl text-white group-hover:text-brand-blue transition-colors"></i>
+                <!-- Video 2 -->
+                <a href="https://youtu.be/6AFlgF3NKUw" target="_blank" rel="noopener noreferrer" class="group block">
+                    <div class="relative overflow-hidden rounded-lg aspect-video mb-4 border border-brand-border group-hover:border-brand-blue transition-colors">
+                        <img src="https://img.youtube.com/vi/6AFlgF3NKUw/maxresdefault.jpg" alt="PVSF2026Sp / 超深淵帯" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                            <i class="fa-brands fa-youtube text-4xl text-white/80 group-hover:text-red-500 transition-colors"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-mono text-brand-blue uppercase">PVSF2026Sp</span>
-                        <h3 class="text-sm font-bold text-white mt-1 line-clamp-2">PVSF2026Sp / 超深淵帯</h3>
-                    </div>
+                    <h3 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">PVSF2026Sp / 超深淵帯</h3>
                 </a>
 
-                <!-- Movie Item 3 -->
-                <a href="https://youtu.be/8ImHr9uvGXM" target="_blank" rel="noopener noreferrer" class="solid-card rounded-lg overflow-hidden group reveal-on-scroll">
-                    <div class="aspect-video relative bg-slate-900 overflow-hidden">
-                        <img src="https://img.youtube.com/vi/8ImHr9uvGXM/hqdefault.jpg" alt="PVSF2025S / 花弁、それにまつわる音声" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-play text-2xl text-white group-hover:text-brand-blue transition-colors"></i>
+                <!-- Video 3 -->
+                <a href="https://youtu.be/8ImHr9uvGXM" target="_blank" rel="noopener noreferrer" class="group block">
+                    <div class="relative overflow-hidden rounded-lg aspect-video mb-4 border border-brand-border group-hover:border-brand-blue transition-colors">
+                        <img src="https://img.youtube.com/vi/8ImHr9uvGXM/maxresdefault.jpg" alt="PVSF2025S / 花弁、それにまつわる音声" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                            <i class="fa-brands fa-youtube text-4xl text-white/80 group-hover:text-red-500 transition-colors"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-mono text-brand-blue uppercase">PVSF2025S</span>
-                        <h3 class="text-sm font-bold text-white mt-1 line-clamp-2">PVSF2025S / 花弁、それにまつわる音声</h3>
-                    </div>
+                    <h3 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">PVSF2025S / 花弁、それにまつわる音声</h3>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="works" class="py-24 border-t border-brand-border bg-brand-black relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- WORKS Section -->
+    <section id="works" class="py-24 border-t border-brand-border bg-brand-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal-on-scroll">
-                <span class="text-xs font-mono text-orange-500 uppercase tracking-widest">05 / TIMELINE</span>
+                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">05 / HISTORY</span>
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">WORKS</h2>
+                <p class="text-xs text-slate-400 mt-2">クリックまたはタップで詳細を展開</p>
             </div>
 
-            <div class="relative max-w-3xl mx-auto pl-8 sm:pl-10 space-y-4 reveal-on-scroll">
+            <div class="relative pl-6 space-y-4 reveal-on-scroll">
+                <!-- Timeline Line -->
                 <div class="timeline-line"></div>
 
                 <!-- 2008 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2008</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">神奈川県に生まれる</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2008</span>
+                            <span class="text-sm font-bold text-white">神奈川県に生まれる</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">神奈川県にて誕生。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            神奈川県にて生を受ける。
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2021 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2021</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">YouTubeを開設。ゆっくりを始める。</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2021</span>
+                            <span class="text-sm font-bold text-white">YouTubeを開設。ゆっくりを始める。</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">YouTubeチャンネルを開設し、ゆっくり実況動画の投稿活動を開始。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            動画投稿サイトYouTubeにてチャンネルを開設し、ゆっくり実況・解説などのコンテンツ制作を開始する。
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2022 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500/60 border-2 border-brand-black"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2022</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">ー</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2022</span>
+                            <span class="text-sm font-bold text-white">ー</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">活動準備期間。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            活動継続。
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2023 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2023</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">Xを開設。本格的に活動を開始</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2023</span>
+                            <span class="text-sm font-bold text-white">Xを開設。本格的に活動を開始</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">X(旧Twitter)アカウントを開設。SNSでの本格的な情報発信・動画投稿を開始。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            X（旧Twitter）アカウントを開設し、SNSでの発信や交流を通じて本格的な活動をスタート。
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2024 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2024</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">チャンネル改装・ジャンル変更</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2024</span>
+                            <span class="text-sm font-bold text-white">チャンネル改装・ジャンル変更</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">YouTubeチャンネルのリブランディングおよび制作ジャンルの変更を実施。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            YouTubeチャンネルのデザインや方向性を一新。新たなジャンルへの挑戦を開始する。
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2025 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2025</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">PVSF2025Sに参加</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2025</span>
+                            <span class="text-sm font-bold text-white">PVSF2025Sに参加</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">映像・音楽フェス「PVSF2025S」に参加作品『花弁、体にまつわる音声』を出展。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            「花弁、それにまつわる音声」などの映像・音声作品を通じてイベントへ参加。
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2026 -->
-                <div class="works-item solid-card rounded relative">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">2026</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">PVSF2026Spに参加</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2026</span>
+                            <span class="text-sm font-bold text-white">PVSF2026Spに参加</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">「PVSF2026Sp」に参加作品『超深淵帯』を出展。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            「超深淵帯」の作品で同イベントに連続して参加・制作活動を行う。
+                        </div>
                     </div>
                 </div>
 
                 <!-- PLAYLIST -->
-                <div class="works-item solid-card rounded relative border-orange-500/50">
-                    <div class="absolute -left-[2.05rem] sm:-left-[2.55rem] top-5 w-3 h-3 rounded-full bg-orange-500 border-2 border-brand-black shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-                    <button class="works-accordion-btn w-full p-4 sm:p-5 text-left flex justify-between items-center focus:outline-none group">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <span class="font-mono font-black text-orange-500 text-lg sm:text-xl tracking-wider group-hover:scale-105 transition-transform">PLAYLIST</span>
-                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">PLAYLIST ARCHIVE</span>
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">PLAYLIST</span>
+                            <span class="text-sm font-bold text-white">各種制作物・プレイリスト</span>
                         </div>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
                     </button>
-                    <div class="accordion-content works-content px-5 pb-0 text-xs sm:text-sm text-slate-400 border-t border-brand-border/40">
-                        <p class="py-4 leading-relaxed">投稿楽曲や動画作品の再生リスト一覧。YouTubeチャンネルにて公開中。</p>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            これまでの動画や作品をまとめたプレイリストはYouTubeチャンネルよりご確認いただけます。
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- COLLABS Section -->
     <section id="collabs" class="py-24 border-t border-brand-border bg-brand-dark">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 reveal-on-scroll">
-                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">06 / CREATORS</span>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center reveal-on-scroll">
+                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">06 / COLLABORATION</span>
                 <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">COLLABS</h2>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 reveal-on-scroll">
-                <div class="solid-card p-6 text-center rounded"><p class="text-sm sm:text-base font-bold text-white">れーしあ</p></div>
-                <div class="solid-card p-6 text-center rounded"><p class="text-sm sm:text-base font-bold text-white">おうどん</p></div>
-                <div class="solid-card p-6 text-center rounded"><div class="text-sm sm:text-base font-bold text-white">せんぺんYMM4</div></div>
-                <div class="solid-card p-6 text-center rounded"><p class="text-sm sm:text-base font-bold text-white">biroudo</p></div>
+            <!-- 初期表示のコラボ者名一覧 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 reveal-on-scroll">
+                <div class="solid-card py-6 text-center rounded">
+                    <span class="font-bold text-white tracking-widest">れーしあ</span>
+                </div>
+                <div class="solid-card py-6 text-center rounded">
+                    <span class="font-bold text-white tracking-widest">おうどん</span>
+                </div>
+                <div class="solid-card py-6 text-center rounded">
+                    <span class="font-bold text-white tracking-widest">せんぺんYMM4</span>
+                </div>
+                <div class="solid-card py-6 text-center rounded">
+                    <span class="font-bold text-white tracking-widest">biroudo</span>
+                </div>
             </div>
 
-            <div class="mt-8 text-center reveal-on-scroll">
-                <button id="collabs-viewmore-btn" class="px-8 py-3 rounded border border-brand-border hover:border-brand-blue hover:text-brand-blue text-xs font-mono tracking-widest uppercase text-slate-300 transition-all inline-flex items-center gap-2 group focus:outline-none">
+            <!-- VIEW MORE 機能 -->
+            <div class="reveal-on-scroll">
+                <button id="collabs-viewmore-btn" class="mx-auto flex items-center gap-2 px-8 py-3 rounded border border-brand-border hover:border-brand-blue text-xs font-mono text-white transition-all focus:outline-none">
                     <span>VIEW MORE</span>
-                    <i class="fa-solid fa-chevron-down text-[10px] group-hover:translate-y-0.5 transition-transform" id="collabs-icon"></i>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300" id="collabs-icon"></i>
                 </button>
-            </div>
-
-            <div id="collabs-details" class="accordion-content mt-6 space-y-4">
-                <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
-                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <h3 class="text-base font-bold text-white">れーしあ</h3>
-                        <span class="text-xs font-mono text-brand-blue uppercase">CREATOR / COLLABORATOR</span>
+                
+                <!-- 開閉される詳細領域 -->
+                <div id="collabs-details" class="accordion-content mt-6">
+                    <div class="solid-panel p-8 rounded space-y-6">
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-blue border-b border-brand-border pb-2 mb-2">れーしあ</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">映像制作や動画プロジェクトにおいて協同・コラボレーション実績あり。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-blue border-b border-brand-border pb-2 mb-2">おうどん</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">音楽・動画クリエイティブ等での共作・参加。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-blue border-b border-brand-border pb-2 mb-2">せんぺんYMM4</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">ゆっくりムービーメーカーを用いた動画制作等における技術協力・コラボ。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-blue border-b border-brand-border pb-2 mb-2">biroudo</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">アートワークおよび制作分野でのコラボレーション。</p>
+                        </div>
                     </div>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">共作・映像制作および音楽プロジェクトでのコラボレーション。</p>
-                </div>
-                <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
-                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <h3 class="text-base font-bold text-white">おうどん</h3>
-                        <span class="text-xs font-mono text-brand-blue uppercase">CREATOR / COLLABORATOR</span>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">企画動画・共同コンテンツにおけるクリエイティブ協力。</p>
-                </div>
-                <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
-                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <h3 class="text-base font-bold text-white">せんぺんYMM4</h3>
-                        <span class="text-xs font-mono text-brand-blue uppercase">CREATOR / COLLABORATOR</span>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">YMM4編集・映像表現に関する共同制作・技術パートナー。</p>
-                </div>
-                <div class="solid-card p-6 rounded border-l-4 border-l-brand-blue">
-                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <h3 class="text-base font-bold text-white">biroudo</h3>
-                        <span class="text-xs font-mono text-brand-blue uppercase">CREATOR / COLLABORATOR</span>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">楽曲およびビジュアルワークス等におけるクリエイティブコラボレーション。</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Q&A Section -->
     <section id="qa" class="py-24 border-t border-brand-border bg-brand-black">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 reveal-on-scroll">
-                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">07 / FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Q &amp; A</h2>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center reveal-on-scroll">
+                <span class="text-xs font-mono text-brand-blue uppercase tracking-widest">07 / QUESTIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Q&amp;A</h2>
             </div>
 
             <div class="space-y-4 reveal-on-scroll">
-                <div class="solid-card rounded overflow-hidden">
-                    <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
-                        <span><span class="text-brand-blue font-mono mr-2">Q.</span> お問い合わせが届かない</span>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-200"></i>
+                <div class="bg-brand-panel border border-brand-border rounded">
+                    <button class="qa-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="text-sm font-bold text-white"><span class="text-brand-blue mr-2">Q.</span>お問い合わせが届かない</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
                     </button>
-                    <div class="qa-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-brand-border/40 pt-3">
-                        迷惑フィルタの設定を確認の上再度送信をお願いいたします。
+                    <div class="px-6 pb-5 hidden">
+                        <p class="text-xs text-slate-300 pt-4 border-t border-brand-border/50"><span class="text-slate-500 mr-2">A.</span>迷惑フィルタの設定を確認の上再度送信をお願いいたします。</p>
                     </div>
                 </div>
 
-                <div class="solid-card rounded overflow-hidden">
-                    <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
-                        <span><span class="text-brand-blue font-mono mr-2">Q.</span> イベント・ライブの出演について</span>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-200"></i>
+                <div class="bg-brand-panel border border-brand-border rounded">
+                    <button class="qa-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="text-sm font-bold text-white"><span class="text-brand-blue mr-2">Q.</span>イベント・ライブの出演について</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
                     </button>
-                    <div class="qa-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-brand-border/40 pt-3">
-                        内容に応じて出演の有無などをお話しさせていただきます。CONTACTよりお問い合わせをお願いいたします。
+                    <div class="px-6 pb-5 hidden">
+                        <p class="text-xs text-slate-300 pt-4 border-t border-brand-border/50"><span class="text-slate-500 mr-2">A.</span>内容に応じて出演の有無などをお話しさせていただきます。CONTACTよりお問い合わせをお願いいたします。</p>
                     </div>
                 </div>
 
-                <div class="solid-card rounded overflow-hidden">
-                    <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
-                        <span><span class="text-brand-blue font-mono mr-2">Q.</span> 楽曲制作などは</span>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-200"></i>
+                <div class="bg-brand-panel border border-brand-border rounded">
+                    <button class="qa-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="text-sm font-bold text-white"><span class="text-brand-blue mr-2">Q.</span>楽曲制作などは</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
                     </button>
-                    <div class="qa-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-brand-border/40 pt-3">
-                        現在は行っておりません。
+                    <div class="px-6 pb-5 hidden">
+                        <p class="text-xs text-slate-300 pt-4 border-t border-brand-border/50"><span class="text-slate-500 mr-2">A.</span>現在は行っておりません。</p>
                     </div>
                 </div>
 
-                <div class="solid-card rounded overflow-hidden">
-                    <button class="qa-toggle-btn w-full p-5 text-left font-bold text-sm sm:text-base text-white flex justify-between items-center focus:outline-none">
-                        <span><span class="text-brand-blue font-mono mr-2">Q.</span> 名前は実名ですか？</span>
-                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs transition-transform duration-200"></i>
+                <div class="bg-brand-panel border border-brand-border rounded">
+                    <button class="qa-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="text-sm font-bold text-white"><span class="text-brand-blue mr-2">Q.</span>名前は実名ですか？</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
                     </button>
-                    <div class="qa-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-brand-border/40 pt-3">
-                        YouTube概要欄に記載のある通り、実名とは無関係です。
+                    <div class="px-6 pb-5 hidden">
+                        <p class="text-xs text-slate-300 pt-4 border-t border-brand-border/50"><span class="text-slate-500 mr-2">A.</span>YouTube概要欄に記載のある通り、実名とは無関係です。</p>
                     </div>
                 </div>
             </div>
@@ -595,15 +635,27 @@
 
     <footer class="py-12 border-t border-brand-border bg-brand-black text-center text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div class="flex items-center justify-center gap-8 text-2xl text-slate-300">
-                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-red-500 transition-colors">
+            <!-- SNS Big Icons / Links -->
+            <div class="flex items-center justify-center gap-6 text-2xl text-slate-300">
+                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" class="p-3 rounded-full bg-brand-panel border border-brand-border hover:border-red-500 hover:text-red-500 transition-all">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="hover:text-white transition-colors">
+                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) Profile" class="p-3 rounded-full bg-brand-panel border border-brand-border hover:border-white hover:text-white transition-all">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
             </div>
-            <p class="font-mono text-[10px] tracking-widest uppercase">&copy; 真顔の向井さん All Rights Reserved.</p>
+
+            <!-- Follow Buttons -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-brand-panel border border-brand-border hover:border-white text-xs font-mono text-slate-300 hover:text-white transition-all inline-flex items-center gap-2">
+                    <i class="fa-brands fa-x-twitter text-sm"></i> @KZNM_M4 をXでフォロー
+                </a>
+                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-brand-panel border border-brand-border hover:border-red-500 text-xs font-mono text-slate-300 hover:text-red-500 transition-all inline-flex items-center gap-2">
+                    <i class="fa-brands fa-youtube text-sm text-red-500"></i> YouTube チャンネル
+                </a>
+            </div>
+
+            <p class="font-mono text-[10px] tracking-widest uppercase text-slate-600">&copy; 真顔の向井さん All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -620,17 +672,6 @@
     </div>
 
     <script>
-        // JSエラーによる画面真っ白バグを防ぐためのセーフティネット
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                    if (!el.classList.contains('is-visible')) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }, 1000); // 1秒後に強制表示
-        });
-
         document.addEventListener('DOMContentLoaded', () => {
             // 1. Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
