@@ -28,8 +28,9 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
-                        display: ['Montserrat', 'sans-serif']
+                        sans: ['Zen Kaku Gothic New', 'Noto Sans JP', 'sans-serif'],
+                        display: ['Space Grotesk', 'Zen Kaku Gothic New', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace']
                     }
                 }
             }
@@ -38,7 +39,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -47,13 +48,47 @@
     </script>
 
     <style>
-        /* Modern minimal typography & black-based solid aesthetic */
+        /* Refined typography while retaining the existing layout rhythm */
         body {
             background-color: #0a0a0c;
             color: #f3f4f6;
-            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
             overflow-x: hidden;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.035em;
+            font-weight: 500;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+
+        h1, h2, .site-name {
+            font-family: 'Space Grotesk', 'Zen Kaku Gothic New', sans-serif;
+            letter-spacing: 0.015em;
+        }
+
+        h3 {
+            letter-spacing: 0.025em;
+        }
+
+        .font-mono {
+            letter-spacing: 0.085em;
+        }
+
+        input, textarea, button {
+            font-family: inherit;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .social-link:focus-visible,
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #00d2ff;
+            outline-offset: 3px;
         }
 
         /* JS有効時のみ初期状態を透明にする（安全装置） */
@@ -159,7 +194,7 @@
             
             <a href="#top" class="flex items-center gap-3 group focus:outline-none">
                 <img src="MUKAI.jpg" alt="真顔の向井さん Icon" class="w-9 h-9 rounded-full border border-brand-border object-cover group-hover:border-brand-blue transition-colors" onerror="this.onerror=null; this.src='https://placehold.co/100x100/18181c/ffffff?text=MUKAI';">
-                <span class="font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-brand-blue transition-colors">
+                <span class="site-name font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-brand-blue transition-colors">
                     真顔の向井さん
                 </span>
             </a>
@@ -174,8 +209,8 @@
                 <a href="#qa" class="hover-accent">Q&amp;A</a>
                 <a href="#contact" class="hover-accent text-white border border-brand-border px-4 py-1.5 rounded hover:border-brand-blue transition-all">CONTACT</a>
                 <div class="flex items-center gap-4 text-base pl-3 border-l border-brand-border/60">
-                    <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="hover:text-white transition-colors">
+                    <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link hover:text-red-500"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="social-link hover:text-white">
                         <svg class="w-4 h-4 fill-current inline-block" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
                     </a>
                 </div>
@@ -198,8 +233,8 @@
                 <a href="#contact" class="mobile-nav-link text-brand-blue font-bold py-2">CONTACT</a>
             </nav>
             <div class="pt-2 flex items-center gap-6 text-slate-400 text-xl">
-                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-red-500"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="hover:text-white">
+                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link hover:text-red-500"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="social-link hover:text-white">
                     <svg class="w-5 h-5 fill-current inline-block" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
                 </a>
             </div>
@@ -228,10 +263,6 @@
             <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#news" class="px-8 py-3 rounded border border-white/20 hover:border-brand-blue hover:text-brand-blue text-xs font-mono tracking-widest uppercase transition-all">
                     SCROLL DOWN
-                </a>
-                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded bg-white/5 border border-white/10 hover:border-white hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white transition-all flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 fill-current inline-block" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
-                    Official X
                 </a>
             </div>
         </div>
@@ -333,15 +364,6 @@
                         YouTubeやX(旧Twitter)で活動。<br>
                         様々なジャンルに挑戦し現在はアーティストとして活動中。
                     </p>
-                    <div class="pt-2 flex flex-wrap gap-4">
-                        <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded bg-brand-panel border border-brand-border hover:border-white text-xs font-mono text-white transition-all inline-flex items-center gap-2">
-                            <svg class="w-3.5 h-3.5 fill-current inline-block" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
-                            @KZNM_M4
-                        </a>
-                        <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded bg-brand-panel border border-brand-border hover:border-red-500 text-xs font-mono text-white transition-all inline-flex items-center gap-2">
-                            <i class="fa-brands fa-youtube text-sm text-red-500"></i> YouTube
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -361,7 +383,7 @@
                     <div class="relative overflow-hidden rounded-lg aspect-video mb-4 border border-brand-border group-hover:border-brand-blue transition-colors">
                         <img src="https://img.youtube.com/vi/SB6RyebskJU/maxresdefault.jpg" alt="UTAUcover / 私が明日死ぬなら" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
-                            <i class="fa-brands fa-youtube text-4xl text-white/80 group-hover:text-red-500 transition-colors"></i>
+                            <i class="fa-solid fa-play text-3xl text-white/80 group-hover:text-brand-blue transition-colors" aria-hidden="true"></i>
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">UTAUcover / 私が明日死ぬなら</h3>
@@ -372,7 +394,7 @@
                     <div class="relative overflow-hidden rounded-lg aspect-video mb-4 border border-brand-border group-hover:border-brand-blue transition-colors">
                         <img src="https://img.youtube.com/vi/6AFlgF3NKUw/maxresdefault.jpg" alt="PVSF2026Sp / 超深淵帯" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
-                            <i class="fa-brands fa-youtube text-4xl text-white/80 group-hover:text-red-500 transition-colors"></i>
+                            <i class="fa-solid fa-play text-3xl text-white/80 group-hover:text-brand-blue transition-colors" aria-hidden="true"></i>
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">PVSF2026Sp / 超深淵帯</h3>
@@ -383,7 +405,7 @@
                     <div class="relative overflow-hidden rounded-lg aspect-video mb-4 border border-brand-border group-hover:border-brand-blue transition-colors">
                         <img src="https://img.youtube.com/vi/8ImHr9uvGXM/maxresdefault.jpg" alt="PVSF2025S / 花弁、それにまつわる音声" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
-                            <i class="fa-brands fa-youtube text-4xl text-white/80 group-hover:text-red-500 transition-colors"></i>
+                            <i class="fa-solid fa-play text-3xl text-white/80 group-hover:text-brand-blue transition-colors" aria-hidden="true"></i>
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">PVSF2025S / 花弁、それにまつわる音声</h3>
@@ -513,6 +535,22 @@
                     <div class="accordion-content bg-brand-dark px-6">
                         <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
                             「超深淵帯」の作品で同イベントに連続して参加・制作活動を行う。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2026 PVSF2026S -->
+                <div class="relative z-10 works-item bg-brand-panel border border-brand-border rounded overflow-hidden">
+                    <button class="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none works-accordion-btn">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold font-mono text-orange-500">2026</span>
+                            <span class="text-sm font-bold text-white">PVSF2026Sに参加</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-brand-dark px-6">
+                        <div class="py-4 text-xs text-slate-300 border-t border-brand-border/50">
+                            PVSF2026Sに参加。
                         </div>
                     </div>
                 </div>
@@ -680,23 +718,13 @@
 
     <footer class="py-12 border-t border-brand-border bg-brand-black text-center text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <!-- SNS Big Icons / Links -->
-            <div class="flex items-center justify-center gap-6 text-2xl text-slate-300">
-                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" class="p-3 w-12 h-12 flex items-center justify-center rounded-full bg-brand-panel border border-brand-border hover:border-red-500 hover:text-red-500 transition-all">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) Profile" class="p-3 w-12 h-12 flex items-center justify-center rounded-full bg-brand-panel border border-brand-border hover:border-white hover:text-white transition-all">
-                    <svg class="w-5 h-5 fill-current inline-block" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
-                </a>
-            </div>
-
-            <!-- Follow Buttons -->
+            <!-- One clear social destination for each platform -->
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-brand-panel border border-brand-border hover:border-white text-xs font-mono text-slate-300 hover:text-white transition-all inline-flex items-center gap-2">
+                <a href="https://x.com/KZNM_M4" target="_blank" rel="noopener noreferrer" class="social-link px-5 py-2.5 rounded bg-brand-panel border border-brand-border hover:border-white text-xs font-mono text-slate-300 hover:text-white">
                     <svg class="w-3.5 h-3.5 fill-current inline-block" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
                     @KZNM_M4 をXでフォロー
                 </a>
-                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-brand-panel border border-brand-border hover:border-red-500 text-xs font-mono text-slate-300 hover:text-red-500 transition-all inline-flex items-center gap-2">
+                <a href="http://www.youtube.com/@Mukai_FOX" target="_blank" rel="noopener noreferrer" class="social-link px-5 py-2.5 rounded bg-brand-panel border border-brand-border hover:border-red-500 text-xs font-mono text-slate-300 hover:text-red-500">
                     <i class="fa-brands fa-youtube text-sm text-red-500"></i> YouTube チャンネル
                 </a>
             </div>
